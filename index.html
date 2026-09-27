@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FAILSAFE AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">🛡️ FAILSAFE AI</div>
+            <p>The Agent That Remembers What Went Wrong</p>
+        </header>
+
+        <main>
+
+            <section class="hero">
+                <h1>AI Incident Response</h1>
+
+                <p>
+                    Describe an incident and FAILSAFE will search its
+                    previous incident memory to find what worked before.
+                </p>
+            </section>
+
+            <section class="incident-box">
+
+                <label for="problem">
+                    Describe the incident
+                </label>
+
+                <textarea
+                    id="problem"
+                    placeholder="Example: Payment API is not responding after today's deployment..."
+                ></textarea>
+
+                <button onclick="analyzeIncident()">
+                    🔍 Analyze Incident
+                </button>
+
+            </section>
+
+            <section id="loading" class="loading hidden">
+                🧠 Searching Hindsight memory...
+            </section>
+
+            <section id="result" class="result hidden">
+
+                <h2>🧠 Memory Found</h2>
+
+                <div id="memories"></div>
+
+                <h2>💡 FAILSAFE Recommendation</h2>
+
+                <div id="recommendation" class="recommendation"></div>
+
+            </section>
+
+            <section id="error" class="error hidden"></section>
+
+        </main>
+
+        <footer>
+            <p>Powered by Hindsight Memory + Flask</p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
